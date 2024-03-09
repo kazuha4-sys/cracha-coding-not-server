@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crachá Resultado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .result {
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .result h2 {
+            margin-top: 0;
+        }
+
+        .result p {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="result">
+            <h2>Crachá Resultado</h2>
+            <p><strong>Foto:</strong> <span id="resultFoto"></span></p>
+            <p><strong>Nome:</strong> <span id="resultNome"></span></p>
+            <p><strong>Idade:</strong> <span id="resultIdade"></span></p>
+            <p><strong>Profissão:</strong> <span id="resultProfissao"></span></p>
+            <p><strong>CPF:</strong> <span id="resultCpf"></span></p>
+        </div>
+    </div>
+
+    <script>
+        const resultFoto = document.getElementById('resultFoto');
+        const resultNome = document.getElementById('resultNome');
+        const resultIdade = document.getElementById('resultIdade');
+        const resultProfissao = document.getElementById('resultProfissao');
+        const resultCpf = document.getElementById('resultCpf');
+
+        const data = JSON.parse(localStorage.getItem('crachaData'));
+
+        if (data) {
+            resultFoto.textContent = data.imagem;
+            resultNome.textContent = data.nome;
+            resultIdade.textContent = data.idade;
+            resultProfissao.textContent = data.profissao;
+            resultCpf.textContent = data.cpf;
+        } else {
+            window.location.href = 'cracha.html';
+        }
+    </script>
+</body>
+</html>
